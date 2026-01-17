@@ -9,8 +9,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_accept"):
-		var new_ship : Ship = preload("res://ship/Ship.tscn").instantiate()
+		var new_ship : Ship = preload("res://ship/Ship.tscn").instantiate() #load a ship scene from file them make an intance that is unique and modifiable
 		add_child(new_ship)
+		#set some default values
 		new_ship.position = Vector2(-1000,-1000)
 		new_ship.navigator.target_position = global_position
 		

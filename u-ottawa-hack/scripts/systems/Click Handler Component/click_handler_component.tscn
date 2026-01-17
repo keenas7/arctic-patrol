@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://16006rq6wh3h"]
+
+[ext_resource type="Script" uid="uid://7sxil1kffj80" path="res://scripts/systems/Click Handler Component/click_handler_component.gd" id="1_f1w03"]
+
+[node name="Click Handler Component" type="Node2D"]
+script = ExtResource("1_f1w03")

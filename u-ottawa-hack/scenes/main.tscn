@@ -37,33 +37,57 @@ position = Vector2(776, 1247)
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Draggable Camera Component" parent="Camera2D" instance=ExtResource("2_jyhfs")]
+InputMapName = "left-click"
 DoVelocity = true
 Decay = 0.95
 
 [node name="Zoom Camera Component" parent="Camera2D" instance=ExtResource("3_tbgi4")]
 
-[node name="UI parent" type="CanvasLayer" parent="."]
+[node name="UI layer" type="CanvasLayer" parent="."]
 
-[node name="Ship Port UI" type="Control" parent="UI parent"]
+[node name="Ship Port UI" type="Control" parent="UI layer"]
 visible = false
 layout_mode = 3
 anchor_right = 0.37800002
 anchor_bottom = 1.0
 offset_right = -0.45602417
+grow_vertical = 2
 script = ExtResource("4_jyhfs")
 
-[node name="Label" type="Label" parent="UI parent/Ship Port UI"]
-layout_mode = 0
-offset_right = 575.0
-offset_bottom = 91.0
+[node name="Label" type="Label" parent="UI layer/Ship Port UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.322
+anchor_bottom = 0.14
+offset_right = -0.070007324
+offset_bottom = 0.27999878
 text = "ships in port:"
 label_settings = SubResource("LabelSettings_sugp2")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="UI parent/Ship Port UI"]
-layout_mode = 0
-offset_top = 85.0
-offset_right = 402.0
-offset_bottom = 648.0
+[node name="ScrollContainer" type="ScrollContainer" parent="UI layer/Ship Port UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.16000001
+anchor_right = 1.0
+anchor_bottom = 1.0020001
+offset_top = 0.31999207
+offset_right = -27.0
+offset_bottom = -0.29608154
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI parent/Ship Port UI/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI layer/Ship Port UI/ScrollContainer"]
 layout_mode = 2
+focus_behavior_recursive = 1
+
+[node name="Button" type="Button" parent="UI layer/Ship Port UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "button"
+
+[node name="Button2" type="Button" parent="UI layer/Ship Port UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "button"
+
+[node name="Button3" type="Button" parent="UI layer/Ship Port UI/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "button"

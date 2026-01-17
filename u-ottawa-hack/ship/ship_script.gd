@@ -2,14 +2,16 @@ extends CharacterBody2D
 class_name Ship
 
 @export var nav_point_debug : Node2D
-var speed : float = 500
+
 var navigator : NavigationAgent2D
+
+var speed : float = 500
 
 func _ready() -> void:
 	navigator = get_node("NavigationAgent2D")
+	print(navigator)
 	navigator.navigation_finished.connect(onNavComplete)
-	if nav_point_debug:
-		navigator.target_position = nav_point_debug.global_position
+	navigator.target_position = nav_point_debug.global_position
 
 func _process(_delta: float) -> void:
 	var pos : Vector2 = navigator.get_next_path_position()
@@ -24,4 +26,8 @@ func _process(_delta: float) -> void:
 
 func onNavComplete():
 	print("done")
-	queue_free()
+	#on a layover, call make ship on port where we stop then free yourself
+	#queue_free()
+
+func OnClick():
+	print("WOW!")

@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bemkcqiewooyc"]
+[gd_scene load_steps=4 format=3 uid="uid://bemkcqiewooyc"]
 
 [ext_resource type="Script" uid="uid://bput5ar2qox63" path="res://ship/ship_script.gd" id="1_j84o1"]
+[ext_resource type="PackedScene" uid="uid://16006rq6wh3h" path="res://scripts/systems/Click Handler Component/click_handler_component.tscn" id="2_5ld6u"]
 [ext_resource type="Texture2D" uid="uid://dqlrxpx70mkgb" path="res://ship/pointy.png" id="2_65u0o"]
 
 [node name="Ship" type="CharacterBody2D"]
 script = ExtResource("1_j84o1")
+
+[node name="Click Handler Component" parent="." instance=ExtResource("2_5ld6u")]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 50.0
@@ -19,3 +22,5 @@ texture = ExtResource("2_65u0o")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = 1.5707964
 polygon = PackedVector2Array(0, -45, 14.000002, 45, 0, 30, -14, 45)
+
+[connection signal="Left_Click" from="Click Handler Component" to="." method="OnClick"]
