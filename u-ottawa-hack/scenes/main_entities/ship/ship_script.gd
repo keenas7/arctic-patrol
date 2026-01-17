@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Ship
 
 @export var nav_point_debug : Node2D
+@export var ship_display_name : String = "Big Chud"
 @export var fuel_capacity: float = 100.0
 @export var fuel_consumption_rate : float = 0.001
 @export var current_fuel: float = 100.0
