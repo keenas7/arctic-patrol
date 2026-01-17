@@ -8,6 +8,8 @@ var navigator : NavigationAgent2D
 func _ready() -> void:
 	navigator = get_node("NavigationAgent2D")
 	navigator.navigation_finished.connect(onNavComplete)
+	if nav_point_debug:
+		navigator.target_position = nav_point_debug.global_position
 
 func _process(_delta: float) -> void:
 	var pos : Vector2 = navigator.get_next_path_position()
@@ -19,8 +21,7 @@ func _process(_delta: float) -> void:
 		velocity = Vector2.ZERO
 	
 	move_and_slide()
-	if navigator.is_navigation_finished():
-		free()
 
 func onNavComplete():
 	print("done")
+	queue_free()
