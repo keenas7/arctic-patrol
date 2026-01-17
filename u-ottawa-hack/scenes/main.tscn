@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2wpcvusn42y3"]
+[gd_scene load_steps=7 format=3 uid="uid://dh3w6gaafq7a3"]
 
 [ext_resource type="PackedScene" uid="uid://cu6xaegy8jl26" path="res://Islands/CircleIsland/circle_island.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bfybw12ukde7w" path="res://Camera Components/Draggable/DraggableCameraComponent.tscn" id="2_jyhfs"]
