@@ -1,8 +1,17 @@
+<<<<<<< HEAD
 [gd_scene load_steps=16 format=3 uid="uid://c2wpcvusn42y3"]
+=======
+<<<<<<< HEAD
+[gd_scene load_steps=9 format=3 uid="uid://c2wpcvusn42y3"]
+=======
+[gd_scene load_steps=15 format=3 uid="uid://c2wpcvusn42y3"]
+>>>>>>> 3f5411603f30ac35fbbf4f8c69f78c3412f3955a
+>>>>>>> a96fc8ad0845fdd3c121a07aa187f602ef1508e4
 
 [ext_resource type="PackedScene" uid="uid://bemkcqiewooyc" path="res://scenes/main_entities/ship/Ship.tscn" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bfybw12ukde7w" path="res://Camera Components/Draggable/DraggableCameraComponent.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cq7551clg4y5v" path="res://Camera Components/Zoom/ZoomCameraComponent.tscn" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://do758wjjpq5qg" path="res://scenes/main_entities/ship/test.gd" id="3_tefeu"]
 [ext_resource type="Script" uid="uid://7oj702flyksh" path="res://UI/ship_port_ui.gd" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://depgxb5cx5ren" path="res://Ocean_Frames/oceanTiled.png" id="5_choun"]
 [ext_resource type="Script" uid="uid://bf0tkud5ua505" path="res://scenes/animated_sprite_2d_2.gd" id="5_ya4ey"]
@@ -75,6 +84,9 @@ polygon = PackedVector2Array(-48, -136, -38, -86, -2, -40, -21, 67, 15, 178, 195
 position = Vector2(617.99994, 392.99997)
 scale = Vector2(5, 5)
 texture = ExtResource("7_ya4ey")
+
+[node name="Node2D2" type="Node2D" parent="NavigationRegion2D"]
+script = ExtResource("3_tefeu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

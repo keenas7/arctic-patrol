@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cdf0nmcl73s1s"]
+[gd_scene load_steps=4 format=3 uid="uid://bkp4xsacqa65s"]
 
 [ext_resource type="PackedScene" uid="uid://16006rq6wh3h" path="res://scripts/systems/Click Handler Component/click_handler_component.tscn" id="1_ncv2v"]
 [ext_resource type="Script" uid="uid://dhbummj5bfgo5" path="res://scenes/main_entities/ship/patroller/patroller_script.gd" id="1_twous"]
@@ -6,6 +6,13 @@
 
 [node name="Patroller" type="CharacterBody2D"]
 script = ExtResource("1_twous")
+ship_display_name = null
+ship_type = null
+fuel_capacity = null
+fuel_consumption_rate = null
+current_fuel = null
+max_speed = null
+patrol_radius = null
 
 [node name="Click Handler Component" parent="." instance=ExtResource("1_ncv2v")]
 
