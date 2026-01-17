@@ -40,7 +40,7 @@ func _process(_delta: float) -> void:
 	move_and_slide()
 
 func showInfo():
-	var ui : UiInfoShip = get_node("%Ship Info UI")
+	var ui : UiInfoShip = get_node("%ShipInfoUI")
 	ui.showInfo(self)
 
 func onNavComplete():

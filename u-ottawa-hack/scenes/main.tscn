@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2wpcvusn42y3"]
+[gd_scene load_steps=16 format=3 uid="uid://c2wpcvusn42y3"]
 
 [ext_resource type="PackedScene" uid="uid://bemkcqiewooyc" path="res://scenes/main_entities/ship/Ship.tscn" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bfybw12ukde7w" path="res://Camera Components/Draggable/DraggableCameraComponent.tscn" id="2_jyhfs"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://7oj702flyksh" path="res://UI/ship_port_ui.gd" id="4_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://depgxb5cx5ren" path="res://Ocean_Frames/oceanTiled.png" id="5_choun"]
 [ext_resource type="Script" uid="uid://bf0tkud5ua505" path="res://scenes/animated_sprite_2d_2.gd" id="5_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://cdf0nmcl73s1s" path="res://scenes/main_entities/ship/patroller/patroller.tscn" id="6_eb6dy"]
 [ext_resource type="Script" uid="uid://tdro7wchqu2b" path="res://scenes/ship_info_ui.gd" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://d1fknsbsd4eag" path="res://Ocean_Frames/OceanTiledf2.png" id="6_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://b3a1dgwdjy8ho" path="res://Ocean_Frames/OceanTiledf3.png" id="7_eb6dy"]
@@ -56,6 +57,8 @@ script = ExtResource("5_ya4ey")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_7mycd")
+
+[node name="Patroller" parent="NavigationRegion2D" instance=ExtResource("6_eb6dy")]
 
 [node name="Ship" parent="NavigationRegion2D" instance=ExtResource("1_tbgi4")]
 
@@ -131,7 +134,7 @@ offset_bottom = 0.10399628
 focus_mode = 0
 text = "X"
 
-[node name="Ship info UI" type="ColorRect" parent="UI layer"]
+[node name="ShipInfoUI" type="ColorRect" parent="UI layer"]
 unique_name_in_owner = true
 visible = false
 offset_right = 1152.0
@@ -139,7 +142,7 @@ offset_bottom = 195.0
 color = Color(0.49803922, 0.49803922, 0.49803922, 0.49803922)
 script = ExtResource("6_tefeu")
 
-[node name="Label" type="Label" parent="UI layer/Ship info UI"]
+[node name="Label" type="Label" parent="UI layer/ShipInfoUI"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
