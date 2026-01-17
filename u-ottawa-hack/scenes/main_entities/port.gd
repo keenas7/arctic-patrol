@@ -2,8 +2,7 @@ extends StaticBody2D
 
 # properties and default values
 
-@export var port_name: String = "default ship"
-
+@export var port_name: String = "default port"
 @export var port_type: String = "Resource"  # "Resource", "Research", "etc"
 @export var max_berths: int = 3 #berths are docking spots for ships.
 @export var fuel_capacity: float = 10000.0
@@ -62,7 +61,7 @@ func refuel_ship(ship, delta):
 		return
 
 
-# ATTEMP TO MODIFY SHIP FUEL ... TODO
+# ATTEMP TO MODIFY SHIP FUEL ... TODO !!!!!
 # var fuel_needed = ship.max_fuel - ship.fuel
 
 #var fuel_to_transfer = min(
