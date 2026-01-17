@@ -1,0 +1,2 @@
+# arctic-patrol
+teach the Commanders how to macro properly in the Arctic, scout effectively, and analyze the replay stats to improve the next run
