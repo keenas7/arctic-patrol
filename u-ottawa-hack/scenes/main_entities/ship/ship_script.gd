@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Ship
 
-@export var nav_point_debug : Node2D
 @export var ship_display_name : String = "Big Chud" #Monster Destroyer, Fyre Frigate 
 @export var ship_type: String = "Default"
 @export var fuel_capacity: float = 100.0
@@ -10,12 +9,15 @@ class_name Ship
 @export var max_speed: float = 200.0
 @export var patrol_radius: float = 500.0
 
+
+
 #@export var sprite_path: String = "res://sprites/ships/frigate.png"
 
 
 var navigator : NavigationAgent2D
 #var begin_new_nav : bool = false
 var speed : float = 500
+var route : Array[Port]
 
 func _ready() -> void:
 	shipSetup()
@@ -23,8 +25,7 @@ func _ready() -> void:
 func shipSetup() -> void:
 	navigator = get_node("NavigationAgent2D") #target_pos tells nav agent to calculate path to pos
 	print(navigator)
-	navigator.navigation_finished.connect(onNavComplete) 
-	navigator.target_position = nav_point_debug.global_position #set target position to 
+	navigator.navigation_finished.connect(onNavComplete)
 
 func _process(_delta: float) -> void:
 	var pos : Vector2 = navigator.get_next_path_position()
