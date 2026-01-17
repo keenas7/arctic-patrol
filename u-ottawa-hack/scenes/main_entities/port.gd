@@ -59,11 +59,20 @@ func dock_ship(ship):
 	ship.dock_at_position(berth_position)
 	print("%s docked at %s (berth %d)" % [ship.ship_name, port_name, berth_index + 1])
 
+<<<<<<< HEAD
 func refuel_ship(ship, delta):
 	if current_fuel <= 0:
 		#call ship function
+=======
+func refuel_ship(ship: Ship, _delta):
+	var refill : float = ship.fuel_capacity - ship.current_fuel 
+	if current_fuel - refill <= 0:
+>>>>>>> 6db5d4b251c3911b20d109268442465ceb2adcbd
 		ship.show_message("Port out of fuel!")
 		return
+	
+	current_fuel -= refill
+	ship.current_fuel += refill
 
 
 # ATTEMP TO MODIFY SHIP FUEL ... TODO !!!!!
