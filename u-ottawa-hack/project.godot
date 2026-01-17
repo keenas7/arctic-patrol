@@ -15,6 +15,14 @@ run/main_scene="uid://c2wpcvusn42y3"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Fuel="*res://scripts/systems/global_events.gd"
+Weather="*res://scripts/systems/global_weather.gd"
+Resources="*res://scripts/systems/global_resources.gd"
+Events="*res://autoload/events.gd"
+State="*res://autoload/gameState.gd"
+
 [input]
 
 "zoom out"={
