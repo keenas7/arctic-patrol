@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://c2wpcvusn42y3"]
+[gd_scene load_steps=5 format=3 uid="uid://c2wpcvusn42y3"]
+
+[ext_resource type="PackedScene" uid="uid://cu6xaegy8jl26" path="res://Islands/CircleIsland/circle_island.tscn" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bfybw12ukde7w" path="res://Camera Components/Draggable/DraggableCameraComponent.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cq7551clg4y5v" path="res://Camera Components/Zoom/ZoomCameraComponent.tscn" id="3_lquwl"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7mycd"]
+vertices = PackedVector2Array(1920.7266, -535.6094, 2069.2266, 1494.9063, 594.3594, 360, 580.1094, 306.8203, 580.1094, 413.1797, 541.1797, 452.10938, -843.2031, 1473.0781, 488, 466.35938, 434.8203, 452.10938, -524.46875, -436.32813, 395.89063, 413.1797, 381.64063, 360, 395.89063, 306.8203, 434.8203, 267.89063, 488, 253.64063, 541.1797, 267.89063)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1), PackedInt32Array(5, 4, 1), PackedInt32Array(5, 1, 6, 7), PackedInt32Array(8, 7, 6), PackedInt32Array(8, 6, 9, 10), PackedInt32Array(11, 10, 9), PackedInt32Array(12, 11, 9), PackedInt32Array(13, 12, 9), PackedInt32Array(13, 9, 0, 14), PackedInt32Array(15, 14, 0), PackedInt32Array(15, 0, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-533, -446, 1930, -546, 2080, 1505, -855, 1483)])
 
 [node name="main" type="Node"]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_7mycd")
+
+[node name="Circle Island" parent="NavigationRegion2D" instance=ExtResource("1_h2yge")]
+position = Vector2(488, 360)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Draggable Camera Component" parent="Camera2D" instance=ExtResource("2_1bvp3")]
+DoVelocity = true
+
+[node name="Zoom Camera Component" parent="Camera2D" instance=ExtResource("3_lquwl")]

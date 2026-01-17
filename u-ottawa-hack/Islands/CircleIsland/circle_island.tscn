@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu6xaegy8jl26"]
+
+[ext_resource type="Texture2D" uid="uid://btmcai0cmvadg" path="res://Islands/CircleIsland/plain-circle.svg" id="1_4p12g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bcgsm"]
+radius = 96.00521
+
+[node name="Circle Island" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5.364418e-06, 0.5000004)
+scale = Vector2(0.408, 0.408)
+texture = ExtResource("1_4p12g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bcgsm")

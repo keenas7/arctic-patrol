@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq7551clg4y5v"]
+
+[ext_resource type="Script" path="res://Camera Components/Zoom/zoom_camera_component.gd" id="1_2aarp"]
+
+[node name="Zoom Camera Component" type="Node"]
+script = ExtResource("1_2aarp")

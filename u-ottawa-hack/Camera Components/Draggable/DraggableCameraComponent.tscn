@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfybw12ukde7w"]
+
+[ext_resource type="Script" path="res://Camera Components/Draggable/draggable_camera_component.gd" id="1_7smfe"]
+
+[node name="Draggable Camera Component" type="Node"]
+script = ExtResource("1_7smfe")
