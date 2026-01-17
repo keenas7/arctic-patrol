@@ -21,5 +21,6 @@ position = Vector2(488, 360)
 
 [node name="Draggable Camera Component" parent="Camera2D" instance=ExtResource("2_1bvp3")]
 DoVelocity = true
+Decay = 0.95
 
 [node name="Zoom Camera Component" parent="Camera2D" instance=ExtResource("3_lquwl")]
