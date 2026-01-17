@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2wpcvusn42y3"]
+[gd_scene load_steps=9 format=3 uid="uid://c2wpcvusn42y3"]
 
 [ext_resource type="PackedScene" uid="uid://cu6xaegy8jl26" path="res://Islands/CircleIsland/circle_island.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bemkcqiewooyc" path="res://scenes/main_entities/ship/Ship.tscn" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bfybw12ukde7w" path="res://Camera Components/Draggable/DraggableCameraComponent.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cq7551clg4y5v" path="res://Camera Components/Zoom/ZoomCameraComponent.tscn" id="3_tbgi4"]
 [ext_resource type="Script" uid="uid://7oj702flyksh" path="res://UI/ship_port_ui.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://tdro7wchqu2b" path="res://scenes/ship_info_ui.gd" id="6_tefeu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7mycd"]
 vertices = PackedVector2Array(1321.3516, 444, 1920.7266, -535.6094, 2069.2266, 1494.9063, 1307.2422, 496.6797, 1163.3203, 352.7578, 1124.7578, 391.3203, 593.35156, 360, 579.2422, 307.3203, 1307.2422, 391.3203, 801.2422, 1052.6797, 815.35156, 1000, 1268.6797, 535.2422, 1216, 549.35156, 801.2422, 947.3203, 1163.3203, 535.2422, 762.6797, 908.7578, 1110.6484, 444, 579.2422, 412.6797, 1268.6797, 352.7578, -524.46875, -436.32813, 1216, 338.64844, 540.6797, 268.7578, 488, 254.64844, 1124.7578, 496.6797, 710, 894.64844, 540.6797, 451.2422, 657.3203, 908.7578, 488, 465.35156, 435.3203, 451.2422, 618.7578, 947.3203, -843.2031, 1473.0781, 762.6797, 1091.2422, 435.3203, 268.7578, 396.7578, 307.3203, 382.64844, 360, 396.7578, 412.6797, 604.64844, 1000, 618.7578, 1052.6797, 657.3203, 1091.2422, 710, 1105.3516)
@@ -92,15 +93,17 @@ focus_mode = 0
 text = "X"
 
 [node name="Ship info UI" type="ColorRect" parent="UI layer"]
+unique_name_in_owner = true
 offset_right = 1152.0
 offset_bottom = 195.0
 color = Color(0.49803922, 0.49803922, 0.49803922, 0.49803922)
+script = ExtResource("6_tefeu")
 
 [node name="Label" type="Label" parent="UI layer/Ship info UI"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Ship Info:	
-velocity: ##, fuel: ##, max fuel: ##"
+text = "Ship Info:	[name] [type]
+velocity: ##, fuel: ##, max fuel: ##, consumption rate: ##"
 
 [connection signal="pressed" from="UI layer/Ship Port UI/exit button" to="UI layer/Ship Port UI" method="closeMenu"]

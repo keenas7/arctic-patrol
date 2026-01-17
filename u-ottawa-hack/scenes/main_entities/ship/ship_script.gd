@@ -39,6 +39,10 @@ func _process(_delta: float) -> void:
 	
 	move_and_slide()
 
+func showInfo():
+	var ui : UiInfoShip = get_node("%Ship Info UI")
+	ui.showInfo(self)
+
 func onNavComplete():
 	pass
 	#on a layover, call make ship on port where we stop then free yourself
