@@ -10,10 +10,10 @@ var navigator : NavigationAgent2D
 var speed : float = 500
 
 func _ready() -> void:
-	navigator = get_node("NavigationAgent2D")
+	navigator = get_node("NavigationAgent2D") #target_pos tells nav agent to calculate path to pos
 	print(navigator)
-	navigator.navigation_finished.connect(onNavComplete)
-	navigator.target_position = nav_point_debug.global_position
+	navigator.navigation_finished.connect(onNavComplete) 
+	navigator.target_position = nav_point_debug.global_position #set target position to 
 
 func _process(_delta: float) -> void:
 	var pos : Vector2 = navigator.get_next_path_position()

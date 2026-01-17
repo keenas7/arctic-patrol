@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name Port
 
 # properties and default values
 
@@ -7,6 +8,8 @@ extends StaticBody2D
 @export var max_berths: int = 3 #berths are docking spots for ships.
 @export var fuel_capacity: float = 10000.0
 @export var current_fuel: float = 10000.0
+
+#i do not believe this will be implemented. but, i keep it in mind. 
 #@export var refuel_rate: float = 20.0  # fuel per second
 #@export var fuel_regeneration: float = 5.0  # fuel regenerated per second
 #@export var refuel_cost_multiplier: float = 1.0  # 1.0 = normal, 2.0 = expensive
@@ -32,24 +35,23 @@ func _process(delta): #automatically done every frame (delta is change in time s
 	assign_berths()
 	
 
+# on action body_entered, signal sent to this function to request ship be docked (add to wait queue, or to dock array)
 func _on_ship_entered(ship):
-	if ship.is_in_group("ships"):
-		request_docking(ship)
+	request_docking(ship)
 
-func request_docking(ship):
+func request_docking(ship): # Berth slot available, insert ship to docking (berth) array
 	if docked_ships.size() < max_berths:
-		#Berth slot available, insert ship to docking (berth) array
 		dock_ship(ship)
 	else:
 		# Add to wait queue
-		# unnaceptable waste of time in some circumstances
+		# unnaceptable waste of time in some circumstances, that's for player to decide.
 		waiting_ships.append(ship)
 		ship.set_waiting_at_port(true) #current status = "waiting..."
 		print("%s queue: %d ships waiting" % [port_name, waiting_ships.size()])
 
 func dock_ship(ship):
 	var berth_index = docked_ships.size()
-	var berth_position = berth_positions[berth_index].global_position #note always use global position for moving objects in the world not relative to any other object.
+	var berth_position = berth_positions[berth_index].global_position # note always use global position for moving objects in the world not relative to any other object.
 
 	docked_ships.append(ship)
 	ship.dock_at_position(berth_position)
