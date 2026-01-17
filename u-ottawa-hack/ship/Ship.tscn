@@ -24,3 +24,4 @@ rotation = 1.5707964
 polygon = PackedVector2Array(0, -45, 14.000002, 45, 0, 30, -14, 45)
 
 [connection signal="Left_Click" from="Click Handler Component" to="." method="OnClick"]
+[connection signal="Left_Clicked_on" from="Click Handler Component" to="." method="ClickedOn"]

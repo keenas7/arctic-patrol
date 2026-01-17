@@ -4,7 +4,7 @@ class_name Ship
 @export var nav_point_debug : Node2D
 
 var navigator : NavigationAgent2D
-
+var begin_new_nav : bool = false
 var speed : float = 500
 
 func _ready() -> void:
@@ -29,5 +29,10 @@ func onNavComplete():
 	#on a layover, call make ship on port where we stop then free yourself
 	#queue_free()
 
+func ClickedOn():
+	begin_new_nav = true
+
 func OnClick():
-	print("WOW!")
+	if begin_new_nav:
+		navigator.target_position = get_global_mouse_position()
+		begin_new_nav = false
