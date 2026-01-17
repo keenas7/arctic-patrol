@@ -25,7 +25,9 @@ var waiting_ships: Array = []  # Ships in queue
 	
 func _process(delta): #automatically done every frame (delta is change in time since last call)
 	# Regenerate fuel over time
-	current_fuel = min(current_fuel * delta, fuel_capacity)
+	current_fuel = min(current_fuel * delta, fuel_capacity) 
+	
+	# TODO add timer possibly make ships wait longer
 
 	# Process refueling for docked ships
 	for ship in docked_ships:
@@ -59,6 +61,7 @@ func dock_ship(ship):
 
 func refuel_ship(ship, delta):
 	if current_fuel <= 0:
+		#call ship function
 		ship.show_message("Port out of fuel!")
 		return
 
