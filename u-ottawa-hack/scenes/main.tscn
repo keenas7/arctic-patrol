@@ -46,7 +46,6 @@ Decay = 0.95
 [node name="UI layer" type="CanvasLayer" parent="."]
 
 [node name="Ship Port UI" type="Control" parent="UI layer"]
-visible = false
 layout_mode = 3
 anchor_right = 0.37800002
 anchor_bottom = 1.0
