@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bemkcqiewooyc"]
+
+[ext_resource type="Script" uid="uid://bput5ar2qox63" path="res://ship/ship_controller.gd" id="1_j84o1"]
+[ext_resource type="Texture2D" uid="uid://dqlrxpx70mkgb" path="res://ship/pointy.png" id="2_65u0o"]
+
+[node name="Ship" type="CharacterBody2D"]
+script = ExtResource("1_j84o1")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 50.0
+target_desired_distance = 50.0
+debug_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_65u0o")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5707964
+polygon = PackedVector2Array(0, -45, 14, 44, 0, 30, -14, 45)

@@ -6,8 +6,8 @@
 [ext_resource type="Script" uid="uid://7oj702flyksh" path="res://UI/ship_port_ui.gd" id="4_jyhfs"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7mycd"]
-vertices = PackedVector2Array(1920.7266, -535.6094, 2069.2266, 1494.9063, 594.3594, 360, 580.1094, 306.8203, 580.1094, 413.1797, 541.1797, 452.10938, -843.2031, 1473.0781, 488, 466.35938, 434.8203, 452.10938, -524.46875, -436.32813, 395.89063, 413.1797, 381.64063, 360, 395.89063, 306.8203, 434.8203, 267.89063, 488, 253.64063, 541.1797, 267.89063)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1), PackedInt32Array(5, 4, 1), PackedInt32Array(5, 1, 6, 7), PackedInt32Array(8, 7, 6), PackedInt32Array(8, 6, 9, 10), PackedInt32Array(11, 10, 9), PackedInt32Array(12, 11, 9), PackedInt32Array(13, 12, 9), PackedInt32Array(13, 9, 0, 14), PackedInt32Array(15, 14, 0), PackedInt32Array(15, 0, 3)])
+vertices = PackedVector2Array(1326.3516, 444, 1920.7266, -535.6094, 2069.2266, 1494.9063, 1311.5703, 499.1797, 1160.8203, 348.4297, 1120.4297, 388.8203, 598.35156, 360, 583.5703, 304.8203, 1311.5703, 388.8203, 805.5703, 1055.1797, 820.35156, 1000, 1271.1797, 539.5703, 1216, 554.35156, 805.5703, 944.8203, 1160.8203, 539.5703, 765.1797, 904.4297, 1105.6484, 444, 583.5703, 415.1797, 1271.1797, 348.4297, -524.46875, -436.32813, 1216, 333.64844, 543.1797, 264.4297, 488, 249.64844, 1120.4297, 499.1797, 710, 889.64844, 543.1797, 455.5703, 654.8203, 904.4297, 488, 470.35156, 432.8203, 455.5703, 614.4297, 944.8203, -843.2031, 1473.0781, 765.1797, 1095.5703, 432.8203, 264.4297, 392.4297, 304.8203, 377.64844, 360, 392.4297, 415.1797, 599.64844, 1000, 614.4297, 1055.1797, 654.8203, 1095.5703, 710, 1110.3516)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(1, 0, 8), PackedInt32Array(3, 2, 9, 10, 11), PackedInt32Array(12, 11, 10, 13), PackedInt32Array(14, 12, 13, 15), PackedInt32Array(6, 5, 16, 17), PackedInt32Array(1, 8, 18), PackedInt32Array(19, 1, 18, 20), PackedInt32Array(19, 20, 4, 21, 22), PackedInt32Array(17, 23, 14, 15, 24, 25), PackedInt32Array(17, 16, 23), PackedInt32Array(25, 24, 26, 27), PackedInt32Array(28, 27, 26, 29, 30), PackedInt32Array(31, 9, 2), PackedInt32Array(4, 7, 21), PackedInt32Array(19, 22, 32), PackedInt32Array(30, 19, 32, 33), PackedInt32Array(30, 33, 34), PackedInt32Array(30, 34, 35), PackedInt32Array(30, 35, 28), PackedInt32Array(30, 29, 36), PackedInt32Array(30, 36, 37), PackedInt32Array(30, 37, 38), PackedInt32Array(2, 30, 38, 39), PackedInt32Array(2, 39, 31)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-533, -446, 1930, -546, 2080, 1505, -855, 1483)])
 
 [sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
@@ -20,6 +20,12 @@ navigation_polygon = SubResource("NavigationPolygon_7mycd")
 
 [node name="Circle Island" parent="NavigationRegion2D" instance=ExtResource("1_sugp2")]
 position = Vector2(488, 360)
+
+[node name="Circle Island2" parent="NavigationRegion2D" instance=ExtResource("1_sugp2")]
+position = Vector2(1216, 444)
+
+[node name="Circle Island3" parent="NavigationRegion2D" instance=ExtResource("1_sugp2")]
+position = Vector2(710, 1000)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
