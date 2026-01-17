@@ -23,14 +23,14 @@ var docked_ships: Array = []  # Ships currently refueling
 	
 func _process(delta): #automatically done every frame (delta is change in time since last call)
 	# Regenerate fuel over time
-	current_fuel = min(current_fuel + fuel_regeneration * delta, fuel_capacity)
+	current_fuel = min(current_fuel * delta, fuel_capacity)
 
 	# Process refueling for docked ships
-	for ship in docked_ships:
-		refuel_ship(ship, delta)
+	#for ship in docked_ships:
+		#refuel_ship(ship, delta)
 
 	# Try to assign berths to waiting ships
-	assign_berths()
+	#assign_berths()
 	
 
 func _on_ship_entered(ship):
@@ -38,10 +38,23 @@ func _on_ship_entered(ship):
 		request_docking(ship)
 func request_docking(ship):
 	if docked_ships.size() < max_berths:
-		# Berth available
+		#Berth slot available, insert ship to docking (berth) array
 		dock_ship(ship)
 	else:
-		# Add to queue
+		# Add to wait queue
+		# unnaceptable waste of time in some circumstances
 		waiting_ships.append(ship)
-		ship.set_waiting_at_port(true)
+		ship.set_waiting_at_port(true) #current status = "waiting..."
 		print("%s queue: %d ships waiting" % [port_name, waiting_ships.size()])
+		
+func dock_ship(ship):
+	var berth_index = docked_ships.size()
+	var berth_position = berth_positions[berth_index].global_position #note always use global position for moving objects in the world not relative to any other object.
+
+	docked_ships.append(ship)
+	ship.dock_at_position(berth_position)
+	print("%s docked at %s (berth %d)" % [ship.ship_name, port_name, berth_index + 1])
+func refuel_ship(ship, delta):
+	if current_fuel <= 0:
+		ship.show_message("Port out of fuel!")
+		return
