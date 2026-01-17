@@ -13,7 +13,7 @@ extends StaticBody2D
 #@export var refuel_cost_multiplier: float = 1.0  # 1.0 = normal, 2.0 = expensive
 
 var docked_ships: Array = []  # Ships currently refueling
-#var waiting_ships: Array = []  # Ships in queue
+var waiting_ships: Array = []  # Ships in queue
 
 @onready var berth_positions = $QueuePositions.get_children()
 #func _ready(): #initializer
@@ -26,16 +26,17 @@ func _process(delta): #automatically done every frame (delta is change in time s
 	current_fuel = min(current_fuel * delta, fuel_capacity)
 
 	# Process refueling for docked ships
-	#for ship in docked_ships:
-		#refuel_ship(ship, delta)
+	for ship in docked_ships:
+		refuel_ship(ship, delta)
 
 	# Try to assign berths to waiting ships
-	#assign_berths()
+	assign_berths()
 	
 
 func _on_ship_entered(ship):
 	if ship.is_in_group("ships"):
 		request_docking(ship)
+
 func request_docking(ship):
 	if docked_ships.size() < max_berths:
 		#Berth slot available, insert ship to docking (berth) array
@@ -46,7 +47,7 @@ func request_docking(ship):
 		waiting_ships.append(ship)
 		ship.set_waiting_at_port(true) #current status = "waiting..."
 		print("%s queue: %d ships waiting" % [port_name, waiting_ships.size()])
-		
+
 func dock_ship(ship):
 	var berth_index = docked_ships.size()
 	var berth_position = berth_positions[berth_index].global_position #note always use global position for moving objects in the world not relative to any other object.
@@ -54,7 +55,30 @@ func dock_ship(ship):
 	docked_ships.append(ship)
 	ship.dock_at_position(berth_position)
 	print("%s docked at %s (berth %d)" % [ship.ship_name, port_name, berth_index + 1])
+
 func refuel_ship(ship, delta):
 	if current_fuel <= 0:
 		ship.show_message("Port out of fuel!")
 		return
+
+
+# ATTEMP TO MODIFY SHIP FUEL ... TODO
+# var fuel_needed = ship.max_fuel - ship.fuel
+
+#var fuel_to_transfer = min(
+#		refuel_rate * delta,
+#		fuel_needed,
+#		current_fuel
+#)
+
+# ship.fuel += fuel_to_transfer
+# current_fuel -= fuel_to_transfer
+
+
+# Assign next ship in queue to the docking array
+func assign_berths():
+	while waiting_ships.size() > 0 and docked_ships.size() < max_berths:
+		var next_ship = waiting_ships.pop_front()
+		dock_ship(next_ship)
+		
+#wait time... etc 
