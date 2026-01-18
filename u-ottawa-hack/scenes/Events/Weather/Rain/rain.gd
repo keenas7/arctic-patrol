@@ -1,4 +1,5 @@
 extends Area2D
+class_name Rain
 
 var rain_time : Timer
 var stop_rain_time : Timer

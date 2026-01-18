@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bokdcm86u4ong"]
 
-[ext_resource type="Script" uid="uid://5bk1eb4ffw7k" path="res://scenes/Events/Weather/Heavy Storm/Rain/rain.gd" id="1_w5f6b"]
+[ext_resource type="Script" uid="uid://5bk1eb4ffw7k" path="res://scenes/Events/Weather/Rain/rain.gd" id="1_w5f6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtr0e"]
 size = Vector2(421, 187)
