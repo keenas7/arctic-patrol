@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv4nedxsgoi2a"]
+
+[ext_resource type="PackedScene" uid="uid://16006rq6wh3h" path="res://scripts/systems/Click Handler Component/click_handler_component.tscn" id="1_h5nfo"]
+[ext_resource type="Texture2D" uid="uid://0qr7i0dmjoxp" path="res://scenes/main_entities/ship/shipper/boat1.png" id="2_31fyq"]
+
+[node name="Shipper" type="CharacterBody2D"]
+
+[node name="Click Handler Component" parent="." instance=ExtResource("1_h5nfo")]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 50.0
+target_desired_distance = 50.0
+debug_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_31fyq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 1.5707964
+polygon = PackedVector2Array(-12.999999, 19, -14, -5.9999995, -1.3113416e-06, -30, 14, -6.0000005, 14.000001, 19, 3.0000012, 25, -1.9999989, 25)

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd5y5bjmf4hje"]
+
+[ext_resource type="Texture2D" uid="uid://cmyn3x7f6m467" path="res://scripts/entities/port/plain-square.svg" id="1_83dhi"]
+[ext_resource type="Script" uid="uid://cbfbuj3i7rgeh" path="res://scripts/entities/port/port.gd" id="1_ec7h6"]
+[ext_resource type="PackedScene" uid="uid://16006rq6wh3h" path="res://scripts/systems/Click Handler Component/click_handler_component.tscn" id="1_pjdug"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u5vc"]
+size = Vector2(81, 80)
+
+[node name="Port" type="StaticBody2D"]
+modulate = Color(0.2509804, 0.2509804, 0.2509804, 1)
+script = ExtResource("1_ec7h6")
+fuel_capacity = 100.0
+current_fuel = 100.0
+
+[node name="Click Handler Component" parent="." instance=ExtResource("1_pjdug")]
+position = Vector2(-0.49999905, 8.34465e-07)
+scale = Vector2(0.17382813, 0.171875)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_0u5vc")
+
+[node name="PortCircl" type="Sprite2D" parent="."]
+position = Vector2(-0.49999905, 8.34465e-07)
+scale = Vector2(0.17382813, 0.171875)
+texture = ExtResource("1_83dhi")
+
+[connection signal="Left_Clicked_on" from="Click Handler Component" to="." method="clickedOn"]
