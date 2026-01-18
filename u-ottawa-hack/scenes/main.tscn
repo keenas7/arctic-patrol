@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c2wpcvusn42y3"]
+[gd_scene load_steps=9 format=3 uid="uid://c2wpcvusn42y3"]
 
 [ext_resource type="PackedScene" uid="uid://cu6xaegy8jl26" path="res://Islands/CircleIsland/circle_island.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bemkcqiewooyc" path="res://scenes/main_entities/ship/Ship.tscn" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bfybw12ukde7w" path="res://Camera Components/Draggable/DraggableCameraComponent.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cq7551clg4y5v" path="res://Camera Components/Zoom/ZoomCameraComponent.tscn" id="3_tbgi4"]
+[ext_resource type="Script" uid="uid://do758wjjpq5qg" path="res://scenes/main_entities/ship/test.gd" id="3_tefeu"]
 [ext_resource type="Script" uid="uid://7oj702flyksh" path="res://UI/ship_port_ui.gd" id="4_jyhfs"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7mycd"]
@@ -32,6 +33,9 @@ position = Vector2(1216, 444)
 
 [node name="Circle Island3" parent="NavigationRegion2D" instance=ExtResource("1_sugp2")]
 position = Vector2(710, 1000)
+
+[node name="Node2D2" type="Node2D" parent="NavigationRegion2D"]
+script = ExtResource("3_tefeu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
