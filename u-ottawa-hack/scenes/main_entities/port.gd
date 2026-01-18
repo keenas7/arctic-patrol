@@ -1,11 +1,11 @@
-extends StaticBody2D
+extends AreaBody2D
 class_name Port
 
 # properties and default values
 
 @export var port_name: String = "default port"
 @export var port_type: String = "Resource"  # "Resource", "Research", "etc"
-@export var max_berths: int = 3 #berths are docking spots for ships.
+@export var max_docks: int = 3 #docks are docking spots for ships.
 @export var fuel_capacity: float = 10000.0
 @export var current_fuel: float = 10000.0
 
@@ -17,7 +17,7 @@ class_name Port
 var docked_ships: Array = []  # Ships currently refueling
 var waiting_ships: Array = []  # Ships in queue
 
-@onready var berth_positions = $QueuePositions.get_children()
+@onready var dock_positions = $QueuePositions.get_children()
 #func _ready(): #initializer
 	# Connect signals for ships entering/exiting
 	#body_entered.connect(_on_ship_entered)
@@ -33,16 +33,16 @@ func _process(delta): #automatically done every frame (delta is change in time s
 	for ship in docked_ships:
 		refuel_ship(ship, delta)
 
-	# Try to assign berths to waiting ships
-	assign_berths()
+	# Try to assign docks to waiting ships
+	assign_docks()
 	
 
 # on action body_entered, signal sent to this function to request ship be docked (add to wait queue, or to dock array)
 func _on_ship_entered(ship):
 	request_docking(ship)
 
-func request_docking(ship): # Berth slot available, insert ship to docking (berth) array
-	if docked_ships.size() < max_berths:
+func request_docking(ship): # dock slot available, insert ship to docking (dock) array
+	if docked_ships.size() < max_docks:
 		dock_ship(ship)
 	else:
 		# Add to wait queue
@@ -52,22 +52,17 @@ func request_docking(ship): # Berth slot available, insert ship to docking (bert
 		print("%s queue: %d ships waiting" % [port_name, waiting_ships.size()])
 
 func dock_ship(ship):
-	var berth_index = docked_ships.size()
-	var berth_position = berth_positions[berth_index].global_position # note always use global position for moving objects in the world not relative to any other object.
+	var dock_index = docked_ships.size()
+	var dock_position = dock_positions[dock_index].global_position # note always use global position for moving objects in the world not relative to any other object.
 
 	docked_ships.append(ship)
-	ship.dock_at_position(berth_position)
-	print("%s docked at %s (berth %d)" % [ship.ship_name, port_name, berth_index + 1])
+	ship.dock_at_position(dock_position)
+	print("%s docked at %s (dock %d)" % [ship.ship_name, port_name, dock_index + 1])
 
-<<<<<<< HEAD
-func refuel_ship(ship, delta):
-	if current_fuel <= 0:
 		#call ship function
-=======
 func refuel_ship(ship: Ship, _delta):
 	var refill : float = ship.fuel_capacity - ship.current_fuel 
 	if current_fuel - refill <= 0:
->>>>>>> 6db5d4b251c3911b20d109268442465ceb2adcbd
 		ship.show_message("Port out of fuel!")
 		return
 	
@@ -89,8 +84,8 @@ func refuel_ship(ship: Ship, _delta):
 
 
 # Assign next ship in queue to the docking array
-func assign_berths():
-	while waiting_ships.size() > 0 and docked_ships.size() < max_berths:
+func assign_docks():
+	while waiting_ships.size() > 0 and docked_ships.size() < max_docks:
 		var next_ship = waiting_ships.pop_front()
 		dock_ship(next_ship)
 		
