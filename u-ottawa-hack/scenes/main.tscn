@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2wpcvusn42y3"]
+[gd_scene load_steps=9 format=3 uid="uid://c2wpcvusn42y3"]
 
 [ext_resource type="PackedScene" uid="uid://cu6xaegy8jl26" path="res://Islands/CircleIsland/circle_island.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bemkcqiewooyc" path="res://scenes/main_entities/ship/Ship.tscn" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bfybw12ukde7w" path="res://Camera Components/Draggable/DraggableCameraComponent.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cq7551clg4y5v" path="res://Camera Components/Zoom/ZoomCameraComponent.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://dd5y5bjmf4hje" path="res://scripts/entities/port/Port.tscn" id="3_tefeu"]
 [ext_resource type="Script" uid="uid://7oj702flyksh" path="res://UI/ship_port_ui.gd" id="4_jyhfs"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7mycd"]
@@ -11,21 +13,30 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(-533, -446, 1930, -546, 2080, 1505, -855, 1483)])
 
 [sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
-font_size = 64
+font_size = 32
 
 [node name="main" type="Node"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_7mycd")
 
+[node name="Ship" parent="NavigationRegion2D" node_paths=PackedStringArray("nav_point_debug") instance=ExtResource("1_tbgi4")]
+nav_point_debug = NodePath("../Node2D")
+
 [node name="Circle Island" parent="NavigationRegion2D" instance=ExtResource("1_sugp2")]
 position = Vector2(488, 360)
+
+[node name="Node2D" type="Node2D" parent="NavigationRegion2D"]
+position = Vector2(833.4725, 656.552)
 
 [node name="Circle Island2" parent="NavigationRegion2D" instance=ExtResource("1_sugp2")]
 position = Vector2(1216, 444)
 
 [node name="Circle Island3" parent="NavigationRegion2D" instance=ExtResource("1_sugp2")]
 position = Vector2(710, 1000)
+
+[node name="Port" parent="NavigationRegion2D" instance=ExtResource("3_tefeu")]
+position = Vector2(607, 361)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -38,23 +49,26 @@ Decay = 0.95
 
 [node name="UI layer" type="CanvasLayer" parent="."]
 
-[node name="Ship Port UI" type="Control" parent="UI layer"]
-layout_mode = 3
+[node name="Ship Port UI" type="ColorRect" parent="UI layer"]
+unique_name_in_owner = true
+anchors_preset = -1
 anchor_right = 0.37800002
 anchor_bottom = 1.0
-offset_right = -0.45602417
+offset_right = 4.543976
 grow_vertical = 2
+color = Color(0, 0, 0, 0.49803922)
 script = ExtResource("4_jyhfs")
 
 [node name="Label" type="Label" parent="UI layer/Ship Port UI"]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 1.322
-anchor_bottom = 0.14
-offset_right = -0.070007324
-offset_bottom = 0.27999878
+anchor_right = 1.0
+anchor_bottom = 0.142
+offset_top = 1.0
+offset_bottom = -0.01600647
 text = "ships in port:"
 label_settings = SubResource("LabelSettings_sugp2")
+horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="UI layer/Ship Port UI"]
 layout_mode = 1
@@ -63,9 +77,22 @@ anchor_top = 0.16000001
 anchor_right = 1.0
 anchor_bottom = 1.0020001
 offset_top = 0.31999207
-offset_right = -27.0
+offset_right = -1.0
 offset_bottom = -0.29608154
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI layer/Ship Port UI/ScrollContainer"]
 layout_mode = 2
 focus_behavior_recursive = 1
+
+[node name="exit button" type="Button" parent="UI layer/Ship Port UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.88600004
+anchor_right = 1.0
+anchor_bottom = 0.07700001
+offset_left = 0.15997314
+offset_bottom = 0.10399628
+focus_mode = 0
+text = "X"
+
+[connection signal="pressed" from="UI layer/Ship Port UI/exit button" to="UI layer/Ship Port UI" method="closeMenu"]
