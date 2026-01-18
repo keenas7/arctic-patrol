@@ -31,7 +31,6 @@ func _rain():
 	stop_rain_time.start(25)
 	
 		
-			
 func _stop_raining():
 	if raining:
 		collision.disabled = true
