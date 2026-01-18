@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bokdcm86u4ong"]
+
+[ext_resource type="Script" path="res://scenes/Events/Weather/Heavy Storm/Rain/rain.gd" id="1_w5f6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtr0e"]
+size = Vector2(421, 187)
+
+[node name="Rain" type="Area2D"]
+script = ExtResource("1_w5f6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(200.5, 83.5)
+shape = SubResource("RectangleShape2D_xtr0e")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

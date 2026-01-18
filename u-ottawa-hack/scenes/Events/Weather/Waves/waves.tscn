@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://djssa4kkyt1e7"]
+
+[ext_resource type="Script" uid="uid://bdnkvqodwj7ux" path="res://scenes/Events/Weather/Waves/waves.gd" id="1_2bvqc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rownr"]
+radius = 66.4003
+
+[node name="Waves" type="Area2D"]
+position = Vector2(-5, -2)
+script = ExtResource("1_2bvqc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 2)
+shape = SubResource("CircleShape2D_rownr")
+
+[connection signal="body_entered" from="." to="." method="on_body_entered"]
+[connection signal="body_exited" from="." to="." method="on_body_exited"]
