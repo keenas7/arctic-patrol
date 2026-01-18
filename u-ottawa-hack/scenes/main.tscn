@@ -1,17 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-[gd_scene load_steps=16 format=3 uid="uid://c2wpcvusn42y3"]
-=======
-<<<<<<< HEAD
-[gd_scene load_steps=9 format=3 uid="uid://c2wpcvusn42y3"]
-=======
-[gd_scene load_steps=15 format=3 uid="uid://c2wpcvusn42y3"]
->>>>>>> 3f5411603f30ac35fbbf4f8c69f78c3412f3955a
->>>>>>> a96fc8ad0845fdd3c121a07aa187f602ef1508e4
-=======
 
-[gd_scene load_steps=15 format=3 uid="uid://c2wpcvusn42y3"]
->>>>>>> 3390bf981f5f84723dcbf54d1eec63eb980447f2
+[gd_scene load_steps=16 format=3 uid="uid://c2wpcvusn42y3"]
 
 [ext_resource type="PackedScene" uid="uid://bemkcqiewooyc" path="res://scenes/main_entities/ship/Ship.tscn" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bfybw12ukde7w" path="res://Camera Components/Draggable/DraggableCameraComponent.tscn" id="2_jyhfs"]
