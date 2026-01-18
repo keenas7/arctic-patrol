@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2wpcvusn42y3"]
+[gd_scene load_steps=8 format=3 uid="uid://c2wpcvusn42y3"]
 
 [ext_resource type="PackedScene" uid="uid://cu6xaegy8jl26" path="res://Islands/CircleIsland/circle_island.tscn" id="1_sugp2"]
 [ext_resource type="PackedScene" uid="uid://bemkcqiewooyc" path="res://scenes/main_entities/ship/Ship.tscn" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bfybw12ukde7w" path="res://Camera Components/Draggable/DraggableCameraComponent.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cq7551clg4y5v" path="res://Camera Components/Zoom/ZoomCameraComponent.tscn" id="3_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://dd5y5bjmf4hje" path="res://scripts/entities/port/Port.tscn" id="3_tefeu"]
 [ext_resource type="Script" uid="uid://7oj702flyksh" path="res://UI/ship_port_ui.gd" id="4_jyhfs"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_7mycd"]
@@ -35,8 +34,18 @@ position = Vector2(1216, 444)
 [node name="Circle Island3" parent="NavigationRegion2D" instance=ExtResource("1_sugp2")]
 position = Vector2(710, 1000)
 
-[node name="Port" parent="NavigationRegion2D" instance=ExtResource("3_tefeu")]
+[node name="Port" parent="NavigationRegion2D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 position = Vector2(607, 361)
+script = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
