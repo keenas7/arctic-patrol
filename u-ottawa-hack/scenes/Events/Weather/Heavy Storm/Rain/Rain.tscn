@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bokdcm86u4ong"]
 
-[ext_resource type="Script" path="res://scenes/Events/Weather/Heavy Storm/Rain/rain.gd" id="1_w5f6b"]
+[ext_resource type="Script" uid="uid://5bk1eb4ffw7k" path="res://scenes/Events/Weather/Heavy Storm/Rain/rain.gd" id="1_w5f6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtr0e"]
 size = Vector2(421, 187)
@@ -13,6 +13,10 @@ position = Vector2(200.5, 83.5)
 shape = SubResource("RectangleShape2D_xtr0e")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2000, 2000)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
