@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv4nedxsgoi2a"]
+[gd_scene load_steps=4 format=3 uid="uid://dv4nedxsgoi2a"]
 
+[ext_resource type="Script" uid="uid://b1mbw4ac85cgn" path="res://scenes/main_entities/ship/shipper/shipper.gd" id="1_31fyq"]
 [ext_resource type="PackedScene" uid="uid://16006rq6wh3h" path="res://scripts/systems/Click Handler Component/click_handler_component.tscn" id="1_h5nfo"]
 [ext_resource type="Texture2D" uid="uid://0qr7i0dmjoxp" path="res://scenes/main_entities/ship/shipper/boat1.png" id="2_31fyq"]
 
 [node name="Shipper" type="CharacterBody2D"]
+script = ExtResource("1_31fyq")
 
 [node name="Click Handler Component" parent="." instance=ExtResource("1_h5nfo")]
 
@@ -20,3 +22,5 @@ texture = ExtResource("2_31fyq")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = 1.5707964
 polygon = PackedVector2Array(-12.999999, 19, -14, -5.9999995, -1.3113416e-06, -30, 14, -6.0000005, 14.000001, 19, 3.0000012, 25, -1.9999989, 25)
+
+[connection signal="Left_Clicked_on" from="Click Handler Component" to="." method="showInfo"]

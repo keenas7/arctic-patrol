@@ -43,6 +43,10 @@ func _process(delta: float) -> void:
 		#print("Out of fuel!")
 		#velocity = Vector2.ZERO
 
+func showInfo():
+	var ui : UiInfoShip = get_node("%Ship Info UI")
+	ui.showInfo(self)
+
 func onNavComplete():
 	velocity = Vector2.ZERO
 	if current_target_port:

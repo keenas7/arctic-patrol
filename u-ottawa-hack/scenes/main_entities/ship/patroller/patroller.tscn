@@ -28,3 +28,5 @@ texture = ExtResource("3_5lggj")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = 1.5707964
 polygon = PackedVector2Array(-12.999999, 19, -14, -5.9999995, -1.3113416e-06, -30, 14, -6.0000005, 14.000001, 19, 3.0000012, 25, -1.9999989, 25)
+
+[connection signal="Left_Clicked_on" from="Click Handler Component" to="." method="showInfo"]
