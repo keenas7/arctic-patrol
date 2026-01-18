@@ -18,13 +18,13 @@ var quick_click_active: bool = true
 
 func _ready():
 	# Call parent's _ready first
-	super._ready()  # ← Runs BaseShip's _ready()
+	super._ready()  # Runs Ship's _ready()
 	
 	# Now add frigate-specific setup
 	ship_display_name = "little scout"
 	ship_type = "patroller"
-	fuel_capacity: = 1000.0
+	fuel_capacity = 1000.0
 	current_fuel = 1000.0
-	fuel_consumption_rate : float = 0.01
+	fuel_consumption_rate = 0.01
 	max_speed = 200.0
 	speed = max_speed
